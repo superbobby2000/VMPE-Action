@@ -12,7 +12,7 @@ class Translation {
     public static function translate(string $translation) : string {
         switch ($translation) {
             case "noPermission":
-                return TextFormat::RED . "You don't have enough access to do that.";
+                return TextFormat::RED . "Not showing command information due to self-leak issues.";
             case "playerNotFound":
                 return TextFormat::GOLD . "Player is not online.";
             case "playerAlreadyBanned":
