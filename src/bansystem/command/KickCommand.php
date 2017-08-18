@@ -12,7 +12,7 @@ class KickCommand extends Command {
     public function __construct() {
         parent::__construct("kick");
         $this->description = "Removes the given player.";
-        $this->usageMessage = "/kick <player> <reason...>";
+        $this->usageMessage = "/kick <player> [reason...]";
         $this->setPermission("bansystem.command.kick");
     }
     
