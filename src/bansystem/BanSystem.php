@@ -157,11 +157,11 @@ class BanSystem extends PluginBase {
     }
     
     public function onLoad() {
-        $this->getLogger()->info("BanSystem is now loading...");
+        $this->getLogger()->info("VSPE-Action is now loading...");
     }
     
     public function onEnable() {
-        $this->getLogger()->info("BanSystem is now enabled.");
+        $this->getLogger()->info("VSPE-Action is now enabled.");
         $this->initializeCommands();
         $this->initializeListeners();
         $this->initializePermissions();
@@ -170,6 +170,6 @@ class BanSystem extends PluginBase {
     }
     
     public function onDisable() {
-        $this->getLogger()->info("BanSystem is now disabled.");
+        $this->getLogger()->info("VSPE-Action is now disabled.");
     }
 }
