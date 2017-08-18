@@ -1,5 +1,5 @@
 
-name: VSPE-action
+name: VSPE-Action
 main: bansystem\BanSystem
 version: 1.0.0
 author: Zeao
