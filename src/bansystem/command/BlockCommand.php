@@ -32,11 +32,11 @@ class BlockCommand extends Command {
             if (count($args) == 1) {
                 if ($player != null) {
                     $blockList->addBan($player->getName(), null, null, $sender->getName());
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been blocked.");
-                    $player->sendMessage(TextFormat::RED . "You have been blocked.");
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been blocked by $sender");
+                    $player->sendMessage(TextFormat::RED . "You have been blocked by $sender.");
                 } else {
                     $blockList->addBan($args[0], null, null, $sender->getName());
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been blocked.");
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been blocked by $sender");
                 }
             } else if (count($args) >= 2) {
                 $reason = "";
@@ -47,11 +47,11 @@ class BlockCommand extends Command {
                 $reason = substr($reason, 0, strlen($reason) - 1);
                 if ($player != null) {
                     $blockList->addBan($player->getName(), $reason, null, $sender->getName());
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been blocked for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
-                    $player->sendMessage(TextFormat::RED . "You have been blocked for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been blocked by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $player->sendMessage(TextFormat::RED . "You have been blocked by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                 } else {
                     $blockList->addBan($args[0], $reason, null, $sender->getName());
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been blocked for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been blocked by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                 }
             }
         } else {
