@@ -32,11 +32,11 @@ class MuteCommand extends Command {
             if (count($args) == 1) {
                 if ($player != null) {
                     $muteList->addBan($player->getName(), null, null, $sender->getName());
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been muted.");
-                    $player->sendMessage(TextFormat::RED . "You have been muted.");
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been muted by $sender.");
+                    $player->sendMessage(TextFormat::RED . "You have been muted by $sender.");
                 } else {
                     $muteList->addBan($args[0], null, null, $sender->getName());
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been muted.");
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been muted by $sender.");
                 }
             } else if (count($args) >= 2) {
                 $reason = "";
@@ -47,11 +47,11 @@ class MuteCommand extends Command {
                 $reason = substr($reason, 0, strlen($reason) - 1);
                 if ($player != null) {
                     $muteList->addBan($player->getName(), $reason, null, $sender->getName());
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been muted for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
-                    $player->sendMessage(TextFormat::RED . "You have been muted for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $player->sendMessage(TextFormat::RED . "You have been muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                 } else {
                     $muteList->addBan($args[0], $reason, null, $sender->getName());
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been muted for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                 }
             }
         } else {
