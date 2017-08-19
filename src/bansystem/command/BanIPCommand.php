@@ -12,7 +12,7 @@ class BanIPCommand extends Command {
     public function __construct() {
         parent::__construct("ban-ip");
         $this->description = "Prevents the given IP address to use this server.";
-        $this->usageMessage  = "/ban-ip <player | address> [reason...]";
+        $this->usageMessage  = "/ban-ip <player> <address> [reason...]";
         $this->setPermission("bansystem.command.banip");
     }
     
@@ -34,15 +34,15 @@ class BanIPCommand extends Command {
                     $banList->addBan($ip, null, null, $sender->getName());
                     foreach ($sender->getServer()->getOnlinePlayers() as $onlinePlayers) {
                         if ($onlinePlayers->getAddress() == $ip) {
-                            $onlinePlayers->kick(TextFormat::RED . "You have been IP banned", false);
+                            $onlinePlayers->kick(TextFormat::RED . "You have been IP banned by $sender", false);
                         }
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned.");
                 } else {
                     if ($player != null) {
                         $banList->addBan($player->getAddress(), null, null, $sender->getName());
-                        $player->kick(TextFormat::RED . "You have been IP banned.", false);
-                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP banned.");
+                        $player->kick(TextFormat::RED . "You have been IP banned by $sender.", false);
+                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP banndd by $sender.");
                     } else {
                         $sender->sendMessage(Translation::translate("playerNotFound"));
                     }
@@ -58,15 +58,15 @@ class BanIPCommand extends Command {
                     $sender->getServer()->getIPBans()->addBan($ip, $reason, null, $sender->getName());
                     foreach ($sender->getServer()->getOnlinePlayers() as $players) {
                         if ($players->getAddress() == $ip) {
-                            $players->kick(TextFormat::RED . "You have been IP banned for " . TextFormat::AQUA . $reason . TextFormat::RED . ".", false);
+                            $players->kick(TextFormat::RED . "You have been IP banned by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".", false);
                         }
                     }
-                    $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been IP banned by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                 } else {
                     if ($player != null) {
                         $banList->addBan($player->getAddress(), $reason, null, $sender->getName());
-                        $player->kick(TextFormat::RED . "You have been IP banned for " . TextFormat::AQUA . $reason . TextFormat::RED . ".", false);
-                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP banned for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");  
+                        $player->kick(TextFormat::RED . "You have been IP banned by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".", false);
+                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP banned by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");  
                     } else {
                         $sender->sendMessage(Translation::translate("playerNotFound"));
                     }
