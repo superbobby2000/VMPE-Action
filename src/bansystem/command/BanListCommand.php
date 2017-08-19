@@ -14,7 +14,7 @@ class BanListCommand extends Command {
     public function __construct() {
         parent::__construct("banlist");
         $this->description = "Lists all the players/IP addresses banned from this server.";
-        $this->usageMessage = "/banlist <name | ip> [page]";
+        $this->usageMessage = "/banlist <name> | <ip> [page]";
         $this->setPermission("bansystem.command.banlist");
     }
     
