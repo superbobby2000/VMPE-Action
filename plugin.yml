@@ -1,7 +1,7 @@
 
 name: VSPE-Action
 main: bansystem\BanSystem
-version: 1.0.0-BetaTest1
+version: 1.0.0
 author: Zeao
 api: [3.0.0-ALPHA6, 3.0.0-ALPHA7]
 description: A ban system for VoidSkyBlockPE
