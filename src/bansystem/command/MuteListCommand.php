@@ -15,7 +15,7 @@ class MuteListCommand extends Command {
     public function __construct() {
         parent::__construct("mutelist");
         $this->description = "Lists all the players/IP addresses muted from this server.";
-        $this->usageMessage = "/mutelist <name | ip> [page]";
+        $this->usageMessage = "/mutelist <name> | <ip> [page]";
         $this->setPermission("bansystem.command.mutelist");
     }
     
