@@ -13,7 +13,7 @@ class MuteIPCommand extends Command {
     public function __construct() {
         parent::__construct("mute-ip");
         $this->description = "Prevents the given IP address from sending public chat message.";
-        $this->usageMessage = "/mute-ip <player | address> [reason...]";
+        $this->usageMessage = "/mute-ip <player> <address> [reason...]";
         $this->setPermission("bansystem.command.muteip");
     }
     
@@ -35,15 +35,15 @@ class MuteIPCommand extends Command {
                     $muteList->addBan($ip, null, null, $sender->getName());
                     foreach ($sender->getServer()->getOnlinePlayers() as $players) {
                         if ($player->getAddress() == $ip) {
-                            $players->sendMessage(TextFormat::RED . "You have been IP muted.");
+                            $players->sendMessage(TextFormat::RED . "You have been IP muted by $sender.");
                         }
                     }
-                    $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been muted.");
+                    $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been muted by $sender.");
                 } else {
                     if ($player != null) {
                         $muteList->addBan($player->getAddress(), null, null, $sender->getName());
-                        $player->sendMessage(TextFormat::RED . "You have been IP muted.");
-                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP muted.");
+                        $player->sendMessage(TextFormat::RED . "You have been IP muted by $sender.");
+                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP muted by $sender.");
                     } else {
                         $sender->sendMessage(Translation::translate("playerNotFound"));
                     }
@@ -59,15 +59,15 @@ class MuteIPCommand extends Command {
                     $muteList->addBan($ip, $reason, null, $sender->getName());
                     foreach ($sender->getServer()->getOnlinePlayers() as $players) {
                         if ($players->getAddress() == $ip) {
-                            $players->sendMessage(TextFormat::RED . "You have been IP muted for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                            $players->sendMessage(TextFormat::RED . "You have been IP muted by $sender. " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                         }
                     }
-                    $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been muted for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                 } else {
                     if ($player != null) {
                         $muteList->addBan($player->getAddress(), $reason, null, $sender->getName());
                         $player->sendMessage(TextFormat::RED . "You have been IP muted for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
-                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP muted for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                     } else {
                         $sender->sendMessage(Translation::translate("playerNotFound"));
                     }
