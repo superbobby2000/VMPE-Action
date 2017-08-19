@@ -15,7 +15,7 @@ class BlockListCommand extends Command {
     public function __construct() {
         parent::__construct("blocklist");
         $this->description = "Views the players/IP addresses blocked from this server.";
-        $this->usageMessage = "/blocklist <name | ip> [page]";
+        $this->usageMessage = "/blocklist <name> | <ip> [page]";
         $this->setPermission("bansystem.command.blocklist");
     }
     
