@@ -13,7 +13,7 @@ class BlockIPCommand extends Command {
     public function __construct() {
         parent::__construct("block-ip");
         $this->description = "Prevents the given IP address from running server commands.";
-        $this->usageMessage = "/block-ip <player | address> [reason...]";
+        $this->usageMessage = "/block-ip <player> <address> [reason...]";
         $this->setPermission("bansystem.command.blockip");
     }
     
@@ -35,15 +35,15 @@ class BlockIPCommand extends Command {
                     $blockList->addBan($ip, null, null, $sender->getName());
                     foreach ($sender->getServer()->getOnlinePlayers() as $player) {
                         if ($player->getAddress() == $ip) {
-                            $player->sendMessage(TextFormat::RED . "You have been IP blocked.");
+                            $player->sendMessage(TextFormat::RED . "You have been IP blocked by $sender");
                         }
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been blocked.");
                 } else {
                     if ($player != null) {
                         $blockList->addBan($player->getAddress(), null, null, $sender->getName());
-                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP blocked.");
-                        $player->sendMessage(TextFormat::RED . "You have been IP blocked.");
+                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP blocked by $sender");
+                        $player->sendMessage(TextFormat::RED . "You have been IP blocked by $sender.");
                     } else {
                         $sender->sendMessage(Translation::translate("playerNotFound"));
                     }
@@ -59,15 +59,15 @@ class BlockIPCommand extends Command {
                     $blockList->addBan($ip, $reason, null, $sender->getName());
                     foreach ($sender->getServer()->getOnlinePlayers() as $player) {
                         if ($player->getAddress() == $ip) {
-                            $player->sendMessage(TextFormat::RED . "You have been IP blocked for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                            $player->sendMessage(TextFormat::RED . "You have been IP blocked by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                         }
                     }
-                    $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been blocked for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $sender->getServer()->broadcastMessage(TextFormat::RED . "Address " . TextFormat::AQUA . $ip . TextFormat::RED . " has been blocked by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                 } else {
                     if ($player != null) {
                         $blockList->addBan($player->getAddress(), $reason, null, $sender->getName());
-                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP blocked for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
-                        $player->sendMessage(TextFormat::RED . "You have been IP blocked for " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                        $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been IP blocked by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                        $player->sendMessage(TextFormat::RED . "You have been IP blocked by $sender " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                     } else {
                         $sender->sendMessage(Translation::translate("playerNotFound"));
                     }
