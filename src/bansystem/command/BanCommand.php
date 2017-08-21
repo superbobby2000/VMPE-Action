@@ -37,7 +37,7 @@ class BanCommand extends Command {
                 } else {
                     $banList->addBan($args[0], null, null, $sender->getName());
                 }
-                $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName . TextFormat::RED . " has been banned by $sender");
+                $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName . TextFormat::RED . " has been banned from §6Void§bMiner§cPE §5with no reason given.");
             } else if (count($args) >= 2) {
                 $reason = "";
                 for ($i = 1; $i < count($args); $i++) {
@@ -47,12 +47,12 @@ class BanCommand extends Command {
                 $reason = substr($reason, 0, strlen($reason) - 1);
                 if ($player != null) {
                     $banList->addBan($player->getName(), $reason, null, $sender->getName());
-                    $player->kick(TextFormat::RED . "You have been banned by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".", false);
+                    $player->kick(TextFormat::RED . "You have been banned from §6Void§bMiner§cPE! §5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".", false);
                     $playerName = $player->getName();
                 } else {
                     $banList->addBan($args[0], $reason, null, $sender->getName());
                 }
-                $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName . TextFormat::RED . " has been banned by $sender Reason: "
+                $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName . TextFormat::RED . " has been banned from §6Void§bMiner§cPE! §5Reason: "
                         . TextFormat::AQUA . $reason . TextFormat::RED . ".");
             }
         } else {
