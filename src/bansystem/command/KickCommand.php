@@ -25,8 +25,8 @@ class KickCommand extends Command {
             $player = $sender->getServer()->getPlayer($args[0]);
             if (count($args) == 1) {
                 if ($player != null) {
-                    $player->kick(TextFormat::RED . "You have been kicked by $sender", false);
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been kicked by $sender");
+                    $player->kick(TextFormat::RED . "You have been kicked from §6Void§bMiner§cPE", false);
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been kicked from §6Void§bMiner§cPE");
                 } else {
                     $sender->sendMessage(Translation::translate("playerNotFound"));
                 }
@@ -38,8 +38,8 @@ class KickCommand extends Command {
                         $reason .= " ";
                     }
                     $reason = substr($reason, 0, strlen($reason) - 1);
-                    $player->kick(TextFormat::RED . "You have been kicked by $sender - Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".", false);
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been kicked by $sender - Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $player->kick(TextFormat::RED . "You have been kicked from §6Void§bMiner§cPE! §5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".", false);
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been kicked from §6Void§bMiner§cPE! §5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                 } else {
                     $sender->sendMessage(Translation::translate("playerNotFound"));
                 }
