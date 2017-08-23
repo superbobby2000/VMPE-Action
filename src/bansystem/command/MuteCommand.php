@@ -33,10 +33,10 @@ class MuteCommand extends Command {
                 if ($player != null) {
                     $muteList->addBan($player->getName(), null, null, $sender->getName());
                     $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been muted by $sender.");
-                    $player->sendMessage(TextFormat::RED . "You have been muted by $sender.");
+                    $player->sendMessage(TextFormat::RED . "You have been muted from our network\n§4Muted by: §bStaff.");
                 } else {
                     $muteList->addBan($args[0], null, null, $sender->getName());
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been muted by $sender.");
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been muted from our network!\n§4Muted by: §bStaff.");
                 }
             } else if (count($args) >= 2) {
                 $reason = "";
@@ -48,10 +48,10 @@ class MuteCommand extends Command {
                 if ($player != null) {
                     $muteList->addBan($player->getName(), $reason, null, $sender->getName());
                     $sender->getServer()->broadcastMessage(TextFormat::AQUA . $player->getName() . TextFormat::RED . " has been muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
-                    $player->sendMessage(TextFormat::RED . "You have been muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $player->sendMessage(TextFormat::RED . "You have been muted from our network!\§4Muted by: §bStaff\n§5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                 } else {
                     $muteList->addBan($args[0], $reason, null, $sender->getName());
-                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been muted by $sender Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
+                    $sender->getServer()->broadcastMessage(TextFormat::AQUA . $args[0] . TextFormat::RED . " has been muted from our network\n§4Muted by: §bStaff\n§5Reason: " . TextFormat::AQUA . $reason . TextFormat::RED . ".");
                 }
             }
         } else {
