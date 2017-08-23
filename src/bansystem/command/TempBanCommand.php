@@ -39,13 +39,13 @@ class TempBanCommand extends Command {
                     if ($player != null) {
                         $playerName = $player->getName();
                         $banList->addBan($player->getName(), null, $expiry->getDate(), $sender->getName());
-                        $player->kick(TextFormat::RED . "You have been temporarily banned by $sender"
-                                . " your ban expires in " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".", false);
+                        $player->kick(TextFormat::RED . "You have been temporarily suspended from our network\n§4Banned by: §bStaff"
+                                . " §6your ban expires in " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".", false);
                     } else {
                         $banList->addBan($args[0], null, $expiry->getDate(), $sender->getName());
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName
-                            . TextFormat::RED . " has been banned until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
+                            . TextFormat::RED . " has been temporarily banned from our network\n§4Banned by: §bStaff §6Banned until " . TextFormat::AQUA . §3$expiryToString . TextFormat::RED . ".");
                     
                 } else if (count($args) >= 3) {
                     $banReason = "";
@@ -56,13 +56,13 @@ class TempBanCommand extends Command {
                     $banReason = substr($banReason, 0, strlen($banReason) - 1);
                     if ($player != null) {
                         $banList->addBan($player->getName(), $banReason, $expiry->getDate(), $sender->getName());
-                        $player->kick(TextFormat::RED . "You have been temporarily banned by $sender Reason: " . TextFormat::AQUA . $banReason . TextFormat::RED . ","
-                                . " your ban expires in " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".", false);
+                        $player->kick(TextFormat::RED . "You have been temporarily banned from our network!\n§4Banned by: §bStaff\n§5Reason: " . TextFormat::AQUA . $banReason . TextFormat::RED . ","
+                                . " §6Your ban expires in " . TextFormat::AQUA . §3$expiryToString . TextFormat::RED . ".", false);
                     } else {
                         $banList->addBan($args[0], $banReason, $expiry->getDate(), $sender->getName());
                     }
                     $sender->getServer()->broadcastMessage(TextFormat::AQUA . $playerName
-                            . TextFormat::RED . " has been banned by $sender Reason: " . TextFormat::AQUA . $banReason . TextFormat::RED . " until " . TextFormat::AQUA . $expiryToString . TextFormat::RED . ".");
+                            . TextFormat::RED . " has been temporarily banned from our network\n§4Banned by: §bStaff\n§5Reason: " . TextFormat::AQUA . $banReason . TextFormat::RED . " §6Your ban expires in " . TextFormat::AQUA . §3$expiryToString . TextFormat::RED . ".");
                 }
             } catch (InvalidArgumentException $e) {
                 $sender->sendMessage(TextFormat::RED . $e->getMessage());
