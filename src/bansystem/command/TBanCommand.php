@@ -15,7 +15,7 @@ class TBanCommand extends Command {
     public function __construct() {
         parent::__construct("tban");
         $this->description = "Temporarily prevents an given player from using this server.";
-        $this->usageMessage = "/tempban <player> <timeFormat> [reason...]";
+        $this->usageMessage = "/tban <player> <timeFormat> [reason...]";
         $this->setPermission("bansystem.command.tempban");
     }
     
