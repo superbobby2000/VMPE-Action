@@ -11,12 +11,12 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
 
-class TempBlockIPCommand extends Command {
+class TBlockIPCommand extends Command {
     
     public function __construct() {
-        parent::__construct("tempblock-ip");
+        parent::__construct("tlock-ip");
         $this->description = "Temporarily prevents the IP address from running server command.";
-        $this->usageMessage = "/tempblock-ip <player | address> <timeFormat> [reason...]";
+        $this->usageMessage = "/tblock-ip <player | address> <timeFormat> [reason...]";
         $this->setPermission("bansystem.command.tempblockip");
     }
     
