@@ -14,7 +14,7 @@ use bansystem\command\MuteIPCommand;
 use bansystem\command\MuteListCommand;
 use bansystem\command\PardonCommand;
 use bansystem\command\PardonIPCommand;
-use bansystem\command\TempBanCommand;
+use bansystem\command\TBanCommand;
 use bansystem\command\TempBanIPCommand;
 use bansystem\command\TempBlockCommand;
 use bansystem\command\TempBlockIPCommand;
