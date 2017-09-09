@@ -11,12 +11,12 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
 
-class TempBlockCommand extends Command {
+class TBlockCommand extends Command {
     
     public function __construct() {
-        parent::__construct("tempblock");
+        parent::__construct("tblock");
         $this->description = "Temporarily prevents the given player from running server command.";
-        $this->usageMessage = "/tempblock <name> <timeFormat> [reason...]";
+        $this->usageMessage = "/tblock <name> <timeFormat> [reason...]";
         $this->setPermission("bansystem.command.tempblock");
     }
     
