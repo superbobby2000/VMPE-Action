@@ -15,11 +15,11 @@ use bansystem\command\MuteListCommand;
 use bansystem\command\PardonCommand;
 use bansystem\command\PardonIPCommand;
 use bansystem\command\TBanCommand;
-use bansystem\command\TempBanIPCommand;
-use bansystem\command\TempBlockCommand;
-use bansystem\command\TempBlockIPCommand;
-use bansystem\command\TempMuteCommand;
-use bansystem\command\TempMuteIPCommand;
+use bansystem\command\TBanIPCommand;
+use bansystem\command\TBlockCommand;
+use bansystem\command\TBlockIPCommand;
+use bansystem\command\TMuteCommand;
+use bansystem\command\MuteIPCommand;
 use bansystem\command\UnbanCommand;
 use bansystem\command\UnbanIPCommand;
 use bansystem\command\UnblockCommand;
@@ -65,12 +65,12 @@ class BanSystem extends PluginBase {
             new MuteListCommand(),
             new PardonCommand(),
             new PardonIPCommand(),
-            new TempBanCommand(),
-            new TempBanIPCommand(),
-            new TempBlockCommand(),
-            new TempBlockIPCommand(),
-            new TempMuteCommand(),
-            new TempMuteIPCommand(),
+            new TBanCommand(),
+            new TBanIPCommand(),
+            new TBlockCommand(),
+            new TBlockIPCommand(),
+            new TMuteCommand(),
+            new TMuteIPCommand(),
             new UnbanCommand(),
             new UnbanIPCommand(),
             new UnblockCommand(),
@@ -136,10 +136,10 @@ class BanSystem extends PluginBase {
             new Permission("bansystem.command.mutelist", "Allows the player to view all the players muted from this server.", Permission::DEFAULT_OP),
             new Permission("bansystem.command.pardon", "Allows the player to allow the given player to use this server.", Permission::DEFAULT_OP),
             new Permission("bansystem.command.pardonip", "Allows the player to allow the given IP address to use this server.", Permission::DEFAULT_OP),
-            new Permission("bansystem.command.tempban", "Allows the player to temporarily prevent the given player to use this server.", Permission::DEFAULT_OP),
-            new Permission("bansystem.command.tempbanip", "Allows the player to temporarily prevent the given IP address to use this server.", Permission::DEFAULT_OP),
-            new Permission("bansystem.command.tempmute", "Allows the player to temporarily prevents the given player to send public chat message.", Permission::DEFAULT_OP),
-            new Permission("bansystem.command.tempmuteip", "Allows the player to prevents the given IP address to send public chat message.", Permission::DEFAULT_OP),
+            new Permission("bansystem.command.tban", "Allows the player to temporarily prevent the given player to use this server.", Permission::DEFAULT_OP),
+            new Permission("bansystem.command.tbanip", "Allows the player to temporarily prevent the given IP address to use this server.", Permission::DEFAULT_OP),
+            new Permission("bansystem.command.tmute", "Allows the player to temporarily prevents the given player to send public chat message.", Permission::DEFAULT_OP),
+            new Permission("bansystem.command.tmuteip", "Allows the player to prevents the given IP address to send public chat message.", Permission::DEFAULT_OP),
             new Permission("bansystem.command.unban", "Allows the player to allow the given player to use this server.", Permission::DEFAULT_OP),
             new Permission("bansystem.command.unbanip", "Allows the player to allow the given IP address to use this server.", Permission::DEFAULT_OP),
             new Permission("bansystem.command.unmute", "Allows the player to allow the given player to send public chat message.", Permission::DEFAULT_OP),
@@ -157,11 +157,11 @@ class BanSystem extends PluginBase {
     }
     
     public function onLoad() {
-        $this->getLogger()->info("VSPE-Action is now loading...");
+        $this->getLogger()->info("VMPE-Action is now loading...");
     }
     
     public function onEnable() {
-        $this->getLogger()->info("VSPE-Action is now enabled.");
+        $this->getLogger()->info("VMPE-Action is now enabled.");
         $this->initializeCommands();
         $this->initializeListeners();
         $this->initializePermissions();
@@ -170,6 +170,6 @@ class BanSystem extends PluginBase {
     }
     
     public function onDisable() {
-        $this->getLogger()->info("VSPE-Action is now disabled.");
+        $this->getLogger()->info("VMPE-Action is now disabled.");
     }
 }
