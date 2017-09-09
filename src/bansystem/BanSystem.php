@@ -19,7 +19,7 @@ use bansystem\command\TBanIPCommand;
 use bansystem\command\TBlockCommand;
 use bansystem\command\TBlockIPCommand;
 use bansystem\command\TMuteCommand;
-use bansystem\command\MuteIPCommand;
+use bansystem\command\TMuteIPCommand;
 use bansystem\command\UnbanCommand;
 use bansystem\command\UnbanIPCommand;
 use bansystem\command\UnblockCommand;
