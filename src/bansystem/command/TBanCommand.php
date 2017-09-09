@@ -10,10 +10,10 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
 
-class TempBanCommand extends Command {
+class TBanCommand extends Command {
     
     public function __construct() {
-        parent::__construct("tempban");
+        parent::__construct("tban");
         $this->description = "Temporarily prevents an given player from using this server.";
         $this->usageMessage = "/tempban <player> <timeFormat> [reason...]";
         $this->setPermission("bansystem.command.tempban");
