@@ -1,7 +1,7 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/TheFixerDevelopment/BanSystem-PocketMine
 branches:
-- patch-1
+- alpha7support
 projects:
-  BanSystem-PocketMine:
+  BanSystem-PMMPAlpha7:
     path: ""
 ...
