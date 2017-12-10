@@ -1,7 +1,7 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/TheFixerDevelopment/BanSystem-PocketMine
 branches:
-- patch-3
+- patch-4
 projects:
-  BanSystem-BlueLight:
+  BanSystem-Latest:
     path: ""
 ...
